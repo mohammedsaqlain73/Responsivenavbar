@@ -1,0 +1,255 @@
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*after this no spcae or nothing*/
+li {
+  list-style: none;
+}
+
+/*we remove the by default dot points*/
+a,
+button {
+  display: block;/*otherwise the buton would start just after the saqlain make it block so start from new line*/
+}
+
+a {
+  color:inherit; /*otherwise bydefault blue */
+  text-decoration: none;
+}
+
+input,
+button
+ {
+  border: none;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+html{
+  font-size:10px;
+  scroll-behavior:smooth;
+}
+body{
+  background-color:#5e2991;
+  font-size:1.6rem;
+  color:#fdff00;
+  line-height:1.7;
+}
+h1,h2,h3,h4,h5,h6{
+  color: #fdff00;
+  line-height:1.3;
+}
+.container {
+  padding-inline: 16px;
+}
+.btn {
+  color:#fdff00;
+  font-size: 18px;
+  font-weight:bolder;
+  border:2px solid #fdff00;
+  max-width:max-content;
+  background-color:#000;
+  padding:12px 28px;
+  border-radius:50px;
+}
+.btn:hover {
+ background-color: #fdff00;
+ color: #000;
+ border-color:#000;
+}
+.logo{
+  font-weight: bold;
+  font-size:25px;
+  letter-spacing:4px;
+}
+.header{
+
+  position:absolute;
+  top:0;
+  left:0;
+  background-color:#000;
+  width:100%;
+  padding-block: 20px;
+  z-index:4;
+}
+.header .container {
+  display:flex;
+  justify-content: space-around;
+  align-items:center;
+}
+.navbar-open-btn{
+  font-size:3.5rem;
+  color: #fdff00;
+}
+
+.navbar {
+  position:fixed;
+  top:0;
+  left:-300px;
+  color:#fdff00;
+  background-color:#1f2329;
+  max-width:300px;/*navbar width is 300px but not visible now as in left*/
+  width:100%;
+  height:100vh;
+  padding:30px;
+  padding-block-end:40px;
+  display:flex;
+  flex-direction:column;/*one below another*/
+  gap:30px;
+  z-index:2;
+  visibility:hidden;
+}
+.navbar.active {
+  visibility: visible;
+  transform:translate(300px);
+}
+.navbar-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.navbar-list{
+  display:flex;
+  flex-direction:column;/*one below another*/
+  gap:15px;
+}
+.navbar-link {
+  padding:6px;
+  margin-block-end:auto;
+  /*the line below it grow on hover*/
+  position: relative;
+  display: inline-block;
+  padding: 6px;
+  font-weight: bold;
+  color: #fdff00;
+
+}
+.navbar-close-btn {
+  font-size: 3.5rem;
+  color: #fdff00;
+}
+.overlay {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100vh;
+  background-color:#000;
+  opacity:0;
+  pointer-events:none;/*overlay is above but not visible due to 0 opacity.if we try to hover or click we will over overlay behind it
+  page so it will prevent click so it is made so*/
+}
+.overlay.active{
+  opacity:0.8;
+  pointer-events:all;/*when it active behind it all become inactive only it is present click on screen it will be over it*/
+}
+.theme-wrapper {
+  margin-top: auto; /* Pushes it to the bottom */
+  padding-top: 20px;
+}
+
+/*media queries*/
+@media (min-width : 575px) {
+   .conatiner{
+     max-width: 540px;
+     width:100%;
+     margin-inline:auto;/*margin(space between container)*/
+   }
+   .header.container{
+    flex-direction:row;
+   }
+   .navbar-list{
+    flex-direction:row;
+    gap:20px;
+   }
+}
+@media (min-width : 768px) {
+  .conatiner {
+    max-width: 720px;
+
+  }
+  .navbar-list{
+    gap:25px;
+    font-size:25px;
+  }
+}
+@media (min-width : 992px) {
+  .conatainer {
+    max-width: 960px;
+
+  }
+  /* now screen is large remove toggler,navbar-top and overlay*/
+  .navbar-open-btn,
+  .navbar-top,
+  .overlay,
+  .navbar .wrapper
+  {
+    display:none;
+  }
+  .navbar, .navbar.active {
+    all:unset;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow:1;
+    /*
+    why .navbar.active used bcz - It guarantees that if .active was added earlier by clicking on toggle.
+    it won't mess with your desktop layout.
+    - all: unset: Removes previous styles applied to the .navbar. It’s a clean reset.
+    - display: flex: Allows the navbar content to lay out in a row.
+    - flex-grow: 1: Makes the navbar expand to fill the available horizontal space
+
+    */
+  }
+  .navbar-list{
+    display:flex;
+    gap:35px;
+    margin-inline:auto;
+ /*if you add color here then list will colored*/
+  }
+  .navbar-link{
+    color:#fdff00;
+  }
+    .header {
+      top: 45px;
+      max-width: 960px;
+      left: 50%;
+      transform: translate(-50%);
+      padding-inline: 16px;
+      border-radius: 8px;
+    }
+/*
+- top: 45px;
+: Moves the header slightly down,
+floating it from the top. - max-width: 960px;
+: Limits the width for better readability. - left: 50%+transform: translate(-50%): Perfectly centers the header.
+- padding-inline: 16px;: Adds horizontal spacing.
+
+*/
+}
+@media (min-width : 1200px) {
+  .container {
+    max-width: 1140px;
+
+  }
+  .header{
+    max-width: 1140px;
+  }
+}
+@media (min-width : 1400px) {
+  .container {
+    max-width: 1320px;
+
+  }
+    .header {
+      max-width: 1320px;
+    }
+}

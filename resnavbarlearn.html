@@ -1,0 +1,50 @@
+<!--first we will build for mobile devices then for other -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="learn.css" rel="stylesheet" />
+  <title>learning responsive navbar</title>
+</head>
+<body>
+  <!-- for mobile devices ui is saqlain on the left and 3 line toggle om the right if you click the toggle opens side
+      bar having saqlain on top left and cross on right below it navbar items and theme chnage button-->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">SAQLAIN</a>
+      <nav  class="navbar" data-navbar>
+        <div class="navbar-top">
+          <a href="#" class="logo">SAQLAIN</a>
+          <button class="navbar-close-btn" data-navbar-toggler>
+            close
+          </button>
+
+        </div>
+        <ul class="navbar-list">
+          <li>
+            <a href="#" navbar-link>Home</a>
+          </li>
+          <li>
+            <a href="#" navbar-link>about</a>
+          </li>
+          <li>
+            <a href="#" navbar-link>contact</a>
+          </li>
+          <li>
+            <a href="#" navbar-link>projects</a>
+          </li>
+        </ul>
+        <div class="theme-wrapper">
+          <button id="theme-btn" class="btn theme">themechange</button>
+        </div>
+      </nav>
+      <button class="navbar-open-btn" data-navbar-toggler>
+        toggle-navbar
+      </button>
+      <div class="overlay" data-navbar-toggler ></div>
+    </div>
+  </header>
+  <script src="learn.js"></script>
+</body>
+</html>
